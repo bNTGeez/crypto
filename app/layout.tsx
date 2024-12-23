@@ -1,31 +1,21 @@
 "use client";
-import React, { useState } from "react";
-import Navbar from "./components/Navbar";
-import Sidebar from "./components/Sidebar";
-import { Box, Button } from "@mui/material";
+import "./globals.css";
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import theme from "./theme";
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
-
-  const toggleSideBar = () => {
-    setSidebarOpen(!sidebarOpen);
-  };
-
   return (
     <html lang="en">
       <body>
-        <Navbar />
-        <Button onClick={toggleSideBar}>
-          {sidebarOpen ? "Hide Sidebar" : "Show Sidebar"}
-        </Button>
-        <Box sx={{ display: "flex" }}>
-          {sidebarOpen && <Sidebar />}
-          <Box sx={{ flexGrow: 1 }}>{children}</Box>
-        </Box>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
