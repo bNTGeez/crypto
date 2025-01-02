@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Navbar from "./../components/Navbar";
 import Sidebar from "./../components/Sidebar";
-import { Box, TextField, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 
 const Profile = () => {
